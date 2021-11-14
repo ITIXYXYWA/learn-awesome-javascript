@@ -3,7 +3,7 @@ target = new Proxy(target, {
 
   get(target, prop) {
     if (prop in target) {
-      return prop !== '_secure' && target[prop];
+      return prop !== '_secure' ? target[prop] : undefined;
     }
     return undefined;
   },
@@ -25,4 +25,5 @@ target = new Proxy(target, {
 
 });
 
-console.log(target);
+console.log(target._secure);
+console.log(target.admin);
